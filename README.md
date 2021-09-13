@@ -1,5 +1,5 @@
-# ALU_project
-## Project of designing an ALU for a course
+# Project 1
+## Project of designing an ALU for 550
 
-### Charlene Han **yh317**
-### Kaiyuan Li **kl406**
+### Charlene Han yh317
+### Kaiyuan Li kl406
