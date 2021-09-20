@@ -1,4 +1,4 @@
-module csa_8(a,b,cin,sum,cout,prevout);//
+module csa_8(a,b,cin,sum,cout,prevout);
 	input [7:0] a, b;
 	input cin;
 	output [7:0]sum;
