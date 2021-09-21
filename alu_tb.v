@@ -36,11 +36,11 @@ module alu_tb();
         checkAdd();
         checkSub();
         checkSLL();
-        //checkSRA();
+        checkSRA();
 
-        //checkNE();
+        checkNE();
         //checkLT();
-        //checkOverflow();
+        checkOverflow();
 
         if(errors == 0) begin
             $display("The simulation completed without errors");
@@ -337,6 +337,61 @@ module alu_tb();
                 $display("**Error in SRA (test 12); expected: %h, actual: %h", 32'h00000000, data_result);
                 errors = errors + 1;
             end
+        
+		  
+		  
+		  
+            @(negedge clock);
+            assign ctrl_ALUopcode = 5'b00101;
+            assign data_operandB = 32'h00000000;
+
+            assign data_operandA = 32'h00011000;
+            assign ctrl_shiftamt = 5'b00100;
+
+            @(negedge clock);
+            if(data_result !== 32'h00001100) begin
+                $display("**Error in SRA (test 111111112); expected: %h, actual: %h", 32'h00001100, data_result);
+                errors = errors + 1;
+            end
+				
+            @(negedge clock);
+            assign ctrl_ALUopcode = 5'b00101;
+            assign data_operandB = 32'h00000000;
+
+            assign data_operandA = 32'h80A00700;
+            assign ctrl_shiftamt = 5'b10000;
+
+            @(negedge clock);
+            if(data_result !== 32'hFFFF80A0) begin
+                $display("**Error in SRA (test 111111113); expected: %h, actual: %h", 32'hFFFF80A0, data_result);
+                errors = errors + 1;
+            end
+				
+            @(negedge clock);
+            assign ctrl_ALUopcode = 5'b00101;
+            assign data_operandB = 32'h00000000;
+
+            assign data_operandA = 32'hA33300FF;
+            assign ctrl_shiftamt = 5'b10100;
+
+            @(negedge clock);
+            if(data_result !== 32'hFFFFFA33) begin
+                $display("**Error in SRA (test 111111114); expected: %h, actual: %h", 32'hFFFFFA33, data_result);
+                errors = errors + 1;
+            end
+				
+            @(negedge clock);
+            assign ctrl_ALUopcode = 5'b00101;
+            assign data_operandB = 32'h00000000;
+
+            assign data_operandA = 32'h6FCB39AA;
+            assign ctrl_shiftamt = 5'b01001;
+
+            @(negedge clock);
+            if(data_result !== 32'h0037E59C) begin
+                $display("**Error in SRA (test 111111115); expected: %h, actual: %h", 32'h0037E59C, data_result);
+                errors = errors + 1;
+            end
         end
     endtask
 
@@ -352,6 +407,19 @@ module alu_tb();
             @(negedge clock);
             if(isNotEqual !== 1'b0) begin
                 $display("**Error in isNotEqual (test 13); expected: %b, actual: %b", 1'b0, isNotEqual);
+                errors = errors + 1;
+            end
+				
+            @(negedge clock);
+            assign ctrl_ALUopcode = 5'b00001;
+            assign ctrl_shiftamt = 5'b00000;
+
+            assign data_operandA = 32'h00000001;
+            assign data_operandB = 32'h00000000;
+
+            @(negedge clock);
+            if(isNotEqual !== 1'b1) begin
+                $display("**Error in isNotEqual (test 13000); expected: %b, actual: %b", 1'b1, isNotEqual);
                 errors = errors + 1;
             end
         end
