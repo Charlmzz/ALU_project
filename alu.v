@@ -30,8 +30,11 @@ module alu(data_operandA, data_operandB, ctrl_ALUopcode, ctrl_shiftamt, data_res
 	//isNotEqual
 	assign isNotEqual = (subtract_result==32'h00000000)? 0 : 1;
 	
+	//isLessThan
+	assign isLessThan = (subtract_overflow==1'b0)? subtract_result[31] : data_operandA[31];
+	
 	//overflow
-	//mux1bit_8 mux2(.s0(ctrl_ALUopcode[0]), .s1(ctrl_ALUopcode[1]), .s2(ctrl_ALUopcode[2]), .in0(add_overflow), .in1(subtract_overflow), .in2(1'b0), .in3(1'b0),.in4(1'b0),.in5(1'b0),.in6(1'b0),.in7(1'b0), .out(overflow));
-	mux_1 mux2(.select(ctrl_ALUopcode[0]), .in0(add_overflow), .in1(subtract_overflow), .out(overflow));
+	mux1bit_8 mux2(.s0(ctrl_ALUopcode[0]), .s1(ctrl_ALUopcode[1]), .s2(ctrl_ALUopcode[2]), .in0(add_overflow), .in1(subtract_overflow), .in2(1'b0), .in3(1'b0),.in4(1'b0),.in5(1'b0),.in6(1'b0),.in7(1'b0), .out(overflow));
+	//mux_1 mux2(.select(ctrl_ALUopcode[0]), .in0(add_overflow), .in1(subtract_overflow), .out(overflow));
 	
 endmodule

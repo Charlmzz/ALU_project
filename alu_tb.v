@@ -39,7 +39,7 @@ module alu_tb();
         checkSRA();
 
         checkNE();
-        //checkLT();
+        checkLT();
         checkOverflow();
 
         if(errors == 0) begin
