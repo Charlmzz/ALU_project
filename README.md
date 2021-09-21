@@ -26,5 +26,30 @@ After we implemented this above architecture, we only need to call the adder/sub
 module in alu.v to perform 32-bit addition and subtraction.
   
 We also added a few more test cases to our testbench and all our test cases were passed.
+
+## Checkpoint2 branch description
+
+Based on checkpoint1, we added bitwise AND & OR, plus a 32-bit barrel shifter with SLL (Logical Left Shift) 
+and SRA (Arithmetic Right Shift). The two 1 bit flags, isLessThan and isNotEqual are aslwo added. 
   
-*We have not yet merged our checkpoint1 to main branch. We will do that after grading result releases.*
+To implement AND & OR, we called both AND and OR gates for each bit of two inputs, and the result 
+for each bitwise operation is stored at corresponding result bit.  
+  
+To implement SLL and SRA, we used 5 layers to build the shifter. Each layer consists of 32 muxes. 
+For layer 1, select is ctrl_shiftamt[0], and it will perform a 1 bit shift if select is 1.
+For layer 2, select is ctrl_shiftamt[1], and it will perform another 2 bit shift if select is 1.
+For layer 3, select is ctrl_shiftamt[2], and it will perform another 4 bit shift if select is 1.
+For layer 4, select is ctrl_shiftamt[3], and it will perform another 8 bit shift if select is 1.
+For layer 5, select is ctrl_shiftamt[4], and it will perform another 16 bit shift if select is 1.
+Thus, with the five layers, the shifter can perform a shift up to 31 bits.
+
+To implement isNotEqual, we assign isNotEqual with a 0 if subtract_result equals to 0, and a 1 if 
+subtract_result does not equal to 0. To implement isLessThan, we assign isLessThan with the highest 
+bit of subtract_result (subtract_result[31]) if subtract_overflow equals to 0; else, we assign 
+isLessThan to with the highest bit of data_operandA (data_operandA[31]), based on the truth table 
+we drew.
+
+To select the correct operation output, we wrote an 32-bit 8:1 mux (which was built from 2:1 muxes) 
+to select the corresponding operation result based on last 3 bits of ctrl_ALUopcode.
+
+*We have not yet merged our checkpoint2 to main branch. We will do that after grading result releases.*
