@@ -43,11 +43,12 @@ For layer 4, select is ctrl_shiftamt[3], and it will perform another 8 bit shift
 For layer 5, select is ctrl_shiftamt[4], and it will perform another 16 bit shift if select is 1.
 Thus, with the five layers, the shifter can perform a shift up to 31 bits.
 
-To implement isNotEqual, we assign isNotEqual with a 0 if subtract_result equals to 0, and a 1 if 
-subtract_result does not equal to 0. To implement isLessThan, we assign isLessThan with the highest 
-bit of subtract_result (subtract_result[31]) if subtract_overflow equals to 0; else, we assign 
-isLessThan to with the highest bit of data_operandA (data_operandA[31]), based on the truth table 
-we drew.
+To implement isNotEqual, we used 32 1-bit and gate to and subtract result with 32-bit 0s. We then 
+used 16 or gates to or the 32-bit and result 2 by 2. We kept doing this until only 1 output was 
+reached, and this 1-bit output is our desired value for isNotEqual. To implement isLessThan, we 
+used a 1-bit 2:1 mux. The select is the overflow from subtract operation. The in0 is the highest 
+bit of subtract_result (subtract_result[31]) if subtract_overflow equals to 0; and in1 is the highest 
+bit of data_operandA (data_operandA[31]), based on the truth table we drew.
 
 To select the correct operation output, we wrote an 32-bit 8:1 mux (which was built from 2:1 muxes) 
 to select the corresponding operation result based on last 3 bits of ctrl_ALUopcode.
