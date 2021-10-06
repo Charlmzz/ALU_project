@@ -53,7 +53,8 @@ bit of data_operandA (data_operandA[31]), based on the truth table we drew.
 To select the correct operation output, we wrote an 32-bit 8:1 mux (which was built from 2:1 muxes) 
 to select the corresponding operation result based on last 3 bits of ctrl_ALUopcode.
 
-##Checkpoint3 branch description
+## Checkpoint3 branch description  
+
 In checkpoint3, we used one 2-to-4 decoder and four 3-to-8 decoders to build the 5-to-32 decoder. 
 The 2-to-4 decoder was built using 2 not gates and 4 and gates. The 3-to-8 decoder was built by 
 using 3 not gates, followed by using eight 3-input and gates and eight 2-input and gates.
