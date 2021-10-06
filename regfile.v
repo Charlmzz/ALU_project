@@ -96,7 +96,7 @@ module regfile (
 	decoder5to32 decoder5to32_A(.a(ctrl_readRegA),.y(temp_readA));
 	decoder5to32 decoder5to32_B(.a(ctrl_readRegB),.y(temp_readB));
 	
-	
+	/*
 	//bufferA
 	wire [31:0]buffer_output0A,buffer_output1A,buffer_output2A,buffer_output3A,
 	buffer_output4A,buffer_output5A,buffer_output6A,buffer_output7A,
@@ -106,83 +106,83 @@ module regfile (
 	buffer_output20A,buffer_output21A,buffer_output22A,buffer_output23A,
 	buffer_output24A,buffer_output25A,buffer_output26A,buffer_output27A,
 	buffer_output28A,buffer_output29A,buffer_output30A,buffer_output31A;
+	*/
 	
-	
-	assign buffer_output0A=(temp_readA[0])?32'h00000000:32'h00000000;
-	assign buffer_output1A=(temp_readA[1])?R1Q:32'h00000000;
-	assign buffer_output2A=(temp_readA[2])?R2Q:32'h00000000;
-	assign buffer_output3A=(temp_readA[3])?R3Q:32'h00000000;
-	assign buffer_output4A=(temp_readA[4])?R4Q:32'h00000000;
-	assign buffer_output5A=(temp_readA[5])?R5Q:32'h00000000;
-	assign buffer_output6A=(temp_readA[6])?R6Q:32'h00000000;
-	assign buffer_output7A=(temp_readA[7])?R7Q:32'h00000000;
-	assign buffer_output8A=(temp_readA[8])?R8Q:32'h00000000;
-	assign buffer_output9A=(temp_readA[9])?R9Q:32'h00000000;
-	assign buffer_output10A=(temp_readA[10])?R10Q:32'h00000000;
-	assign buffer_output11A=(temp_readA[11])?R11Q:32'h00000000;
-	assign buffer_output12A=(temp_readA[12])?R12Q:32'h00000000;
-	assign buffer_output13A=(temp_readA[13])?R13Q:32'h00000000;
-	assign buffer_output14A=(temp_readA[14])?R14Q:32'h00000000;
-	assign buffer_output15A=(temp_readA[15])?R15Q:32'h00000000;
-	assign buffer_output16A=(temp_readA[16])?R16Q:32'h00000000;
-	assign buffer_output17A=(temp_readA[17])?R17Q:32'h00000000;
-	assign buffer_output18A=(temp_readA[18])?R18Q:32'h00000000;
-	assign buffer_output19A=(temp_readA[19])?R19Q:32'h00000000;
-	assign buffer_output20A=(temp_readA[20])?R20Q:32'h00000000;
-	assign buffer_output21A=(temp_readA[21])?R21Q:32'h00000000;
-	assign buffer_output22A=(temp_readA[22])?R22Q:32'h00000000;
-	assign buffer_output23A=(temp_readA[23])?R23Q:32'h00000000;
-	assign buffer_output24A=(temp_readA[24])?R24Q:32'h00000000;
-	assign buffer_output25A=(temp_readA[25])?R25Q:32'h00000000;
-	assign buffer_output26A=(temp_readA[26])?R26Q:32'h00000000;
-	assign buffer_output27A=(temp_readA[27])?R27Q:32'h00000000;
-	assign buffer_output28A=(temp_readA[28])?R28Q:32'h00000000;
-	assign buffer_output29A=(temp_readA[29])?R29Q:32'h00000000;
-	assign buffer_output30A=(temp_readA[30])?R30Q:32'h00000000;
-	assign buffer_output31A=(temp_readA[31])?R31Q:32'h00000000;
+	assign data_readRegA=(temp_readA[0])?32'h00000000:32'bz;
+	assign data_readRegA=(temp_readA[1])?R1Q:32'bz;
+	assign data_readRegA=(temp_readA[2])?R2Q:32'bz;
+	assign data_readRegA=(temp_readA[3])?R3Q:32'bz;
+	assign data_readRegA=(temp_readA[4])?R4Q:32'bz;
+	assign data_readRegA=(temp_readA[5])?R5Q:32'bz;
+	assign data_readRegA=(temp_readA[6])?R6Q:32'bz;
+	assign data_readRegA=(temp_readA[7])?R7Q:32'bz;
+	assign data_readRegA=(temp_readA[8])?R8Q:32'bz;
+	assign data_readRegA=(temp_readA[9])?R9Q:32'bz;
+	assign data_readRegA=(temp_readA[10])?R10Q:32'bz;
+	assign data_readRegA=(temp_readA[11])?R11Q:32'bz;
+	assign data_readRegA=(temp_readA[12])?R12Q:32'bz;
+	assign data_readRegA=(temp_readA[13])?R13Q:32'bz;
+	assign data_readRegA=(temp_readA[14])?R14Q:32'bz;
+	assign data_readRegA=(temp_readA[15])?R15Q:32'bz;
+	assign data_readRegA=(temp_readA[16])?R16Q:32'bz;
+	assign data_readRegA=(temp_readA[17])?R17Q:32'bz;
+	assign data_readRegA=(temp_readA[18])?R18Q:32'bz;
+	assign data_readRegA=(temp_readA[19])?R19Q:32'bz;
+	assign data_readRegA=(temp_readA[20])?R20Q:32'bz;
+	assign data_readRegA=(temp_readA[21])?R21Q:32'bz;
+	assign data_readRegA=(temp_readA[22])?R22Q:32'bz;
+	assign data_readRegA=(temp_readA[23])?R23Q:32'bz;
+	assign data_readRegA=(temp_readA[24])?R24Q:32'bz;
+	assign data_readRegA=(temp_readA[25])?R25Q:32'bz;
+	assign data_readRegA=(temp_readA[26])?R26Q:32'bz;
+	assign data_readRegA=(temp_readA[27])?R27Q:32'bz;
+	assign data_readRegA=(temp_readA[28])?R28Q:32'bz;
+	assign data_readRegA=(temp_readA[29])?R29Q:32'bz;
+	assign data_readRegA=(temp_readA[30])?R30Q:32'bz;
+	assign data_readRegA=(temp_readA[31])?R31Q:32'bz;
 
 	
-	
+	/*
 	//bufferB
 	wire [31:0]buffer_output0B,buffer_output1B,buffer_output2B,buffer_output3B,	buffer_output4B,buffer_output5B,buffer_output6B,buffer_output7B,buffer_output8B,buffer_output9B,buffer_output10B,buffer_output11B,	buffer_output12B,buffer_output13B,buffer_output14B,buffer_output15B,buffer_output16B,buffer_output17B,buffer_output18B,buffer_output19B,	buffer_output20B,buffer_output21B,buffer_output22B,buffer_output23B,buffer_output24B,buffer_output25B,buffer_output26B,buffer_output27B,	buffer_output28B,buffer_output29B,buffer_output30B,buffer_output31B;
+	*/
 	
-	
-	assign buffer_output0B=(temp_readB[0])?32'h00000000:32'h00000000;
-	assign buffer_output1B=(temp_readB[1])?R1Q:32'h00000000;
-	assign buffer_output2B=(temp_readB[2])?R2Q:32'h00000000;
-	assign buffer_output3B=(temp_readB[3])?R3Q:32'h00000000;
-	assign buffer_output4B=(temp_readB[4])?R4Q:32'h00000000;
-	assign buffer_output5B=(temp_readB[5])?R5Q:32'h00000000;
-	assign buffer_output6B=(temp_readB[6])?R6Q:32'h00000000;
-	assign buffer_output7B=(temp_readB[7])?R7Q:32'h00000000;
-	assign buffer_output8B=(temp_readB[8])?R8Q:32'h00000000;
-	assign buffer_output9B=(temp_readB[9])?R9Q:32'h00000000;
-	assign buffer_output10B=(temp_readB[10])?R10Q:32'h00000000;
-	assign buffer_output11B=(temp_readB[11])?R11Q:32'h00000000;
-	assign buffer_output12B=(temp_readB[12])?R12Q:32'h00000000;
-	assign buffer_output13B=(temp_readB[13])?R13Q:32'h00000000;
-	assign buffer_output14B=(temp_readB[14])?R14Q:32'h00000000;
-	assign buffer_output15B=(temp_readB[15])?R15Q:32'h00000000;
-	assign buffer_output16B=(temp_readB[16])?R16Q:32'h00000000;
-	assign buffer_output17B=(temp_readB[17])?R17Q:32'h00000000;
-	assign buffer_output18B=(temp_readB[18])?R18Q:32'h00000000;
-	assign buffer_output19B=(temp_readB[19])?R19Q:32'h00000000;
-	assign buffer_output20B=(temp_readB[20])?R20Q:32'h00000000;
-	assign buffer_output21B=(temp_readB[21])?R21Q:32'h00000000;
-	assign buffer_output22B=(temp_readB[22])?R22Q:32'h00000000;
-	assign buffer_output23B=(temp_readB[23])?R23Q:32'h00000000;
-	assign buffer_output24B=(temp_readB[24])?R24Q:32'h00000000;
-	assign buffer_output25B=(temp_readB[25])?R25Q:32'h00000000;
-	assign buffer_output26B=(temp_readB[26])?R26Q:32'h00000000;
-	assign buffer_output27B=(temp_readB[27])?R27Q:32'h00000000;
-	assign buffer_output28B=(temp_readB[28])?R28Q:32'h00000000;
-	assign buffer_output29B=(temp_readB[29])?R29Q:32'h00000000;
-	assign buffer_output30B=(temp_readB[30])?R30Q:32'h00000000;
-	assign buffer_output31B=(temp_readB[31])?R31Q:32'h00000000;
+	assign data_readRegB=(temp_readB[0])?32'h00000000:32'bz;
+	assign data_readRegB=(temp_readB[1])?R1Q:32'bz;
+	assign data_readRegB=(temp_readB[2])?R2Q:32'bz;
+	assign data_readRegB=(temp_readB[3])?R3Q:32'bz;
+	assign data_readRegB=(temp_readB[4])?R4Q:32'bz;
+	assign data_readRegB=(temp_readB[5])?R5Q:32'bz;
+	assign data_readRegB=(temp_readB[6])?R6Q:32'bz;
+	assign data_readRegB=(temp_readB[7])?R7Q:32'bz;
+	assign data_readRegB=(temp_readB[8])?R8Q:32'bz;
+	assign data_readRegB=(temp_readB[9])?R9Q:32'bz;
+	assign data_readRegB=(temp_readB[10])?R10Q:32'bz;
+	assign data_readRegB=(temp_readB[11])?R11Q:32'bz;
+	assign data_readRegB=(temp_readB[12])?R12Q:32'bz;
+	assign data_readRegB=(temp_readB[13])?R13Q:32'bz;
+	assign data_readRegB=(temp_readB[14])?R14Q:32'bz;
+	assign data_readRegB=(temp_readB[15])?R15Q:32'bz;
+	assign data_readRegB=(temp_readB[16])?R16Q:32'bz;
+	assign data_readRegB=(temp_readB[17])?R17Q:32'bz;
+	assign data_readRegB=(temp_readB[18])?R18Q:32'bz;
+	assign data_readRegB=(temp_readB[19])?R19Q:32'bz;
+	assign data_readRegB=(temp_readB[20])?R20Q:32'bz;
+	assign data_readRegB=(temp_readB[21])?R21Q:32'bz;
+	assign data_readRegB=(temp_readB[22])?R22Q:32'bz;
+	assign data_readRegB=(temp_readB[23])?R23Q:32'bz;
+	assign data_readRegB=(temp_readB[24])?R24Q:32'bz;
+	assign data_readRegB=(temp_readB[25])?R25Q:32'bz;
+	assign data_readRegB=(temp_readB[26])?R26Q:32'bz;
+	assign data_readRegB=(temp_readB[27])?R27Q:32'bz;
+	assign data_readRegB=(temp_readB[28])?R28Q:32'bz;
+	assign data_readRegB=(temp_readB[29])?R29Q:32'bz;
+	assign data_readRegB=(temp_readB[30])?R30Q:32'bz;
+	assign data_readRegB=(temp_readB[31])?R31Q:32'bz;
 
 	
 	
-	
+	/*
 	//or gate for A
 	wire [31:0]or_result0A,or_result1A,or_result2A,or_result3A,or_result4A,or_result5A,or_result6A,or_result7A,or_result8A,or_result9A,or_result10A,or_result11A,or_result12A,or_result13A,or_result14A,or_result15A,or_result16A,or_result17A,or_result18A,or_result19A,	or_result20A,or_result21A,or_result22A,or_result23A,	or_result24A,or_result25A,or_result26A,or_result27A,or_result28A,or_result29A;
 	
@@ -252,5 +252,6 @@ module regfile (
 	or_gate32 oor28 (.a(or_result28B), .x(or_result27B), .y(buffer_output29B));
 	or_gate32 oor29 (.a(or_result29B), .x(or_result28B), .y(buffer_output30B));
 	or_gate32 oor30 (.a(data_readRegB), .x(or_result29B), .y(buffer_output31B));
+	*/
 	
 endmodule
